@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/Escrow.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Escrow.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>29/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.92% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.11% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>41/45</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+&nbsp;
+contract Escrow is Ownable {
+    error Escrow__INVALID_PAYMENT_AMOUNT();
+    error Escrow__NO_FUNDS_DEPOSITED();
+    error Escrow__ERROR_WHILE_SENDING_ETH(address from_, address to_);
+    error Escrow__INVALID_PRICE_VALUE(uint256 price_);
+    error Escrow__INVALID_ADDRESS(address seller_, address escrowAgent_);
+    error Escrow__ESCROW_AGENT_ONLY(address caller_);
+&nbsp;
+    address public seller;
+    uint256 public price = 0.005 ether;
+    address public escrowAgent;
+    bool public isFunded = false;
+    uint256 public constant IDLength = 15;
+    uint256 public nextID;
+&nbsp;
+    event FundsDeposited(address indexed buyer_, uint256 amount_);
+    event FundsReleased(
+        address indexed buyer_,
+        address indexed seller_,
+        uint256 amount_
+    );
+    event TransactionCancelled(address indexed buyer_, uint256 amount_);
+    event NewSaleMade(
+        address indexed buyer_,
+        address indexed seller_,
+        uint256 funds_,
+        string indexed salesId_
+    );
+&nbsp;
+    mapping(address =&gt; uint256) private s_buyerToAmountDeposited;
+    mapping(address =&gt; string[]) private s_salesIDs;
+&nbsp;
+    modifier onlyEscrowAgent() {
+        if (msg.sender != escrowAgent) {
+            revert Escrow__ESCROW_AGENT_ONLY(msg.sender);
+        }
+        _;
+    }
+&nbsp;
+    constructor(address _seller, address _escrowAgent) Ownable(msg.sender) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (_seller == address(0) || _escrowAgent == address(0)) {
+            revert Escrow__INVALID_ADDRESS(_seller, _escrowAgent);
+        }
+        seller = _seller;
+        escrowAgent = _escrowAgent;
+    }
+&nbsp;
+    function setPrice(uint256 _price) external onlyOwner {
+        if (_price &lt;= 0) {
+            revert Escrow__INVALID_PRICE_VALUE(_price);
+        }
+        price = _price;
+    }
+&nbsp;
+    function depositFunds() external payable {
+        if (msg.value != price) {
+            revert Escrow__INVALID_PAYMENT_AMOUNT();
+        }
+&nbsp;
+        s_buyerToAmountDeposited[msg.sender] += msg.value;
+        emit FundsDeposited(msg.sender, msg.value);
+    }
+&nbsp;
+    function releaseFunds(address _buyer) external onlyEscrowAgent {
+        uint256 funds = s_buyerToAmountDeposited[_buyer];
+        if (funds == 0) {
+            revert Escrow__NO_FUNDS_DEPOSITED();
+        }
+        (bool success, ) = seller.call{value: funds}("");
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!success) {
+            revert Escrow__ERROR_WHILE_SENDING_ETH(_buyer, seller);
+        }
+        string memory newSalesId = generateUniqueID();
+        s_salesIDs[_buyer].push(newSalesId);
+        emit FundsReleased(_buyer, seller, funds);
+        emit NewSaleMade(_buyer, seller, funds, newSalesId);
+    }
+&nbsp;
+    function cancelTransaction(address _buyer) external onlyEscrowAgent {
+        uint256 funds = s_buyerToAmountDeposited[_buyer];
+        if (funds == 0) {
+            revert Escrow__NO_FUNDS_DEPOSITED();
+        }
+&nbsp;
+        (bool success, ) = _buyer.call{value: funds}("");
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!success) {
+            revert Escrow__ERROR_WHILE_SENDING_ETH(_buyer, seller);
+        }
+        emit TransactionCancelled(_buyer, funds);
+    }
+&nbsp;
+    function generateUniqueID() internal returns (string memory) {
+        bytes memory characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        bytes memory result = new bytes(IDLength);
+        bool unique;
+        uint256 attempts = 0;
+&nbsp;
+        do {
+            bytes32 hash = keccak256(
+                abi.encodePacked(
+                    block.timestamp,
+                    block.prevrandao,
+                    msg.sender,
+                    nextID,
+                    attempts
+                )
+            );
+            unique = true;
+&nbsp;
+            for (uint256 i = 0; i &lt; IDLength; i++) {
+                uint256 randIndex = uint256(uint8(hash[i % 32])) %
+                    characters.length;
+                result[i] = characters[randIndex];
+            }
+&nbsp;
+            string memory newID = string(result);
+            for (uint256 i = 0; i &lt; s_salesIDs[msg.sender].length; i++) {
+                if (
+                    keccak256(abi.encodePacked(s_salesIDs[msg.sender][i])) ==
+                    keccak256(abi.encodePacked(newID))
+                ) {
+                    unique = false;
+                    break;
+                }
+            }
+&nbsp;
+            attempts++;
+        } while (!unique &amp;&amp; attempts &lt; 10);
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!unique) {
+<span class="cstat-no" title="statement not covered" >            revert("Failed to generate a unique ID after several attempts.")</span>;
+        }
+        nextID++;
+        return string(result);
+    }
+&nbsp;
+    function getSellerAddress() public view returns (address) {
+        return seller;
+    }
+&nbsp;
+    function getEscrowAddress() public view returns (address) {
+        return escrowAgent;
+    }
+&nbsp;
+    function getCurrentPrice() public view returns (uint256) {
+        return price;
+    }
+&nbsp;
+    function getBuyerToAmountDeposited(
+        address _buyer
+    ) public view returns (uint256) {
+        return s_buyerToAmountDeposited[_buyer];
+    }
+&nbsp;
+    function getSalesIds(address _buyer) public view returns (string[] memory) {
+        return s_salesIDs[_buyer];
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 25 2024 18:50:38 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
